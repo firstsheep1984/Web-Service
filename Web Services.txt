@@ -1,0 +1,71 @@
+what is difference between web server and web service?
+
+A web service is an application that is run by a web server and that results in a series of URLs that will return their data in a format 
+that is intended to be parsed by a 'generic' computer program instead of by a browser. 
+As a result web services can use any data format they want (as long as both sides agree), but typically something like XML (specifically SOAP or so) or JSON is used.
+
+Web server
+Description:  A web server is server software, or hardware dedicated to running said software, that can satisfy World Wide Web client requests. 
+A web server can, in general, contain one or more websites. A web server processes incoming network requests over HTTP and several other related protocols.
+
+advatages of web service
+A web service is a collection of open protocols and standards used for exchanging data between applications or systems. 
+Software applications written in various programming languages and running on various platforms can use web services to 
+exchange data over computer networks like the Internet in a manner similar to inter-process communication on a single computer. 
+This interoperability (e.g., between Java and Python, or Windows and Linux applications) is due to the use of open standards.
+
+Two uses have been mentioned in many of the tutorials. One is the communication between different machines/applications, 
+which sounds fine. But the next one is to develop reusable application components.
+
+Advantages
+
+ 
+
+Web Services offer many benefits over other types of distributed computing architectures.
+
+Interoperability - This is the most important benefit of Web Services. Web Services typically work outside of private networks, offering developers a non-proprietary route to their solutions. Services developed are likely, therefore, to have a longer life-span, offering better return on investment of the developed service. Web Services also let developers use their preferred programming languages. In addition, thanks to the use of standards-based communications methods, Web Services are virtually platform-independent.
+
+Usability - Web Services allow the business logic of many different systems to be exposed over the Web. This gives your applications the freedom to chose the Web Services that they need. Instead of re-inventing the wheel for each client, you need only include additional application-specific business logic on the client-side. This allows you to develop services and/or client-side code using the languages and tools that you want.
+
+Reusability - Web Services provide not a component-based model of application development, but the closest thing possible to zero-coding deployment of such services. This makes it easy to reuse Web Service components as appropriate in other services. It also makes it easy to deploy legacy code as a Web Service.
+
+Deployability - Web Services are deployed over standard Internet technologies. This makes it possible to deploy Web Services even over the fire wall to servers running on the Internet on the other side of the globe. Also thanks to the use of proven community standards, underlying security (such as SSL) is already built-in.
+
+ 
+
+Disadvantages
+
+ 
+
+Although the simplicity of Web services is an advantage in some respects, it can also be a hindrance. Web services use plain text protocols that use a fairly verbose method to identify data. This means that Web service requests are larger than requests encoded with a binary protocol. The extra size is really only an issue over low-speed connections, or over extremely busy connections.
+Although HTTP and HTTPS (the core Web protocols) are simple, they weren't really meant for long-term sessions. Typically, a browser makes an HTTP connection, requests a Web page and maybe some images, and then disconnects. In a typical CORBA or RMI environment, a client connects to the server and might stay connected for an extended period of time. The server may periodically send data back to the client. This kind of interaction is difficult with Web services, and you need to do a little extra work to make up for what HTTP doesn't do for you.
+
+The problem with HTTP and HTTPS when it comes to Web services is that these protocols are "stateless"—the interaction between the server and client is typically brief and when there is no data being exchanged, the server and client have no knowledge of each other. More specifically, if a client makes a request to the server, receives some information, and then immediately crashes due to a power outage, the server never knows that the client is no longer active. The server needs a way to keep track of what a client is doing and also to determine when a client is no longer active.
+
+Typically, a server sends some kind of session identification to the client when the client first accesses the server. The client then uses this identification when it makes further requests to the server. This enables the server to recall any information it has about the client. A server must usually rely on a timeout mechanism to determine that a client is no longer active. If a server doesn't receive a request from a client after a predetermined amount of time, it assumes that the client is inactive and removes any client information it was keeping. This extra overhead means more work for Web service developers.
+
+Here are the benefits of using Web Services -
+
+Exposing the Existing Function on the network
+A web service is a unit of managed code that can be remotely invoked using HTTP. That is, it can be activated using HTTP requests. Web services allow you to expose the functionality of your existing code over the network. Once it is exposed on the network, other applications can use the functionality of your program.
+
+Interoperability
+Web services allow various applications to talk to each other and share data and services among themselves. Other applications can also use the web services. For example, a VB or .NET application can talk to Java web services and vice versa. Web services are used to make the application platform and technology independent.
+
+Standardized Protocol
+Web services use standardized industry standard protocol for the communication. All the four layers (Service Transport, XML Messaging, Service Description, and Service Discovery layers) use well-defined protocols in the web services protocol stack. This standardization of protocol stack gives the business many advantages such as a wide range of choices, reduction in the cost due to competition, and increase in the quality.
+
+Low Cost Communication
+Web services use SOAP over HTTP protocol, so you can use your existing low-cost internet for implementing web services. This solution is much less costly compared to proprietary solutions like EDI/B2B. Besides SOAP over HTTP, web services can also be implemented on other reliable transport mechanisms like FTP.
+
+how internet works
+The information used to get packets to their destinations are contained in routing tables kept by each router connected to the Internet. Routers are packet switches. A router is usually connected between networks to route packets between them. Each router knows about it's sub-networks and which IP addresses they use.
+
+Multithreading
+Computer architecture
+DescriptionIn computer architecture, multithreading is the ability of a central processing unit to provide multiple threads of execution concurrently, 
+supported by the operating system. This approach differs from multiprocessing. 
+
+difference with process
+Threads are used for small tasks, whereas processes are used for more 'heavyweight' tasks – basically the execution of applications. 
+Another difference between a thread and a process is that threads within the same process share the same address space, whereas different processes do not.

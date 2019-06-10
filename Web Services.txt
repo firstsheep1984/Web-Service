@@ -61,6 +61,12 @@ Web services use SOAP over HTTP protocol, so you can use your existing low-cost 
 how internet works
 The information used to get packets to their destinations are contained in routing tables kept by each router connected to the Internet. Routers are packet switches. A router is usually connected between networks to route packets between them. Each router knows about it's sub-networks and which IP addresses they use.
 
+What is HTTP and how it works?
+The application protocol that makes the web work is Hypertext Transfer Protocol or HTTP. ... Clients (web browsers) send requests to web servers for web elements such as web pages and images. After the request is serviced by a server, the connection between client and server across the Internet is disconnected.
+
+What is TCP/IP and how it works?
+The Internet works by using a protocol called TCP/IP, or Transmission Control Protocol/Internet Protocol. ... In base terms, TCP/IP allows one computer to talk to another computer via the Internet through compiling packets of data and sending them to right location.
+
 Multithreading
 Computer architecture
 DescriptionIn computer architecture, multithreading is the ability of a central processing unit to provide multiple threads of execution concurrently, 
@@ -69,3 +75,5 @@ supported by the operating system. This approach differs from multiprocessing.
 difference with process
 Threads are used for small tasks, whereas processes are used for more 'heavyweight' tasks – basically the execution of applications. 
 Another difference between a thread and a process is that threads within the same process share the same address space, whereas different processes do not.
+
+Conditions (also known as condition queues or condition variables) provide a means for one thread to suspend execution (to "wait") until notified by another thread that some state condition may now be true. Because access to this shared state information occurs in different threads, it must be protected, so a lock of some form is associated with the condition. The key property that waiting for a condition provides is that it atomically releases the associated lock and suspends the current thread, just like Object.wait.

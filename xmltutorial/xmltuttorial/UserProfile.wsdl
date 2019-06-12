@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- 
+	WSDL is a contract between web service provider and consumer
+	It defines for a XML message based web service what this particular web service provides, and how it provides it  
+-->
+<wsdl:definitions
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://mydomain.com/userProfile"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	name="UserProfileService"
+	targetNamespace="http://mydomain.com/userProfile"
+	xmlns:upSchema="http://mydomain.com/userProfile/schema/UserProfile.xsd">
+
+
+
+	<!-- ---------------------------------------------------------------------------------------- -->
+	<!-- Define all the data type service needs for messages -->
+	<wsdl:types>
+	
+		<xsd:schema
+			targetNamespace="http://mydomain.com/userProfile"
+			elementFormDefault="qualified">
+			
+			
+			
+			<!-- import the schema file for response message -->
+			<xsd:import namespace="http://mydomain.com/userProfile/schema/UserProfile.xsd" schemaLocation="UserProfile.xsd" />
+				
+
+
+
+			<!-- GetUserProfile defined to be used as request message -->
+			<xsd:element name="GetUserProfile">
+				<xsd:complexType>
+					<xsd:sequence>
+						<!-- In this example in the request we just need a userName which is type String  -->
+						<xsd:element name="userName" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+
+
+
+			<!-- GetUserProfileResponse defined to be used as response message -->
+			<xsd:element name="GetUserProfileResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<!-- But response message has a complex format defined in UserProfile.xsd -->
+						<xsd:element name="UserProfile" type="upSchema:UserProfile" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+		</xsd:schema>
+		
+	</wsdl:types>
+
+
+
+
+
+	<!-- Request message -->
+	<wsdl:message name="GetUserProfileRequest">
+		<wsdl:part name="params" element="tns:GetUserProfile" />
+	</wsdl:message>
+	
+	
+	
+	
+	<!-- Response message -->
+	<wsdl:message name="GetUserProfileResponse">
+		<wsdl:part name="result"
+			element="tns:GetUserProfileResponse" />
+	</wsdl:message>
+	<!-- ---------------------------------------------------------------------------------------- -->
+	
+	
+	
+	
+	
+	<!-- ---------------------------------------------------------------------------------------- -->
+	<!-- 
+		Define the operation in the service. In this case it is input and output.
+		Operations are like methods in Java. 
+	-->
+	<wsdl:portType name="UserProfilePortType">
+	
+		<wsdl:operation name="GetUserProfile">
+			<wsdl:input message="tns:GetUserProfileRequest" />
+			<wsdl:output message="tns:GetUserProfileResponse" />
+		</wsdl:operation>
+	
+	</wsdl:portType>
+	<!-- ---------------------------------------------------------------------------------------- -->
+	
+	
+	
+	
+
+
+	<!-- ---------------------------------------------------------------------------------------- -->
+	<!-- How consumers can use this service, and how service going to response back. -->
+	<!-- urn: uniform resource name -->
+	<wsdl:binding name="UserProfileBinding" type="tns:UserProfilePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		
+		<wsdl:operation name="GetUserProfile">
+		
+			<soap:operation soapAction="urn:GetUserProfile" />
+		
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			
+		</wsdl:operation>
+		
+	</wsdl:binding>
+	<!-- ---------------------------------------------------------------------------------------- -->
+	
+	
+	
+	
+	
+	<!-- ---------------------------------------------------------------------------------------- -->
+	<!-- How to access this Web Service. What is the end point. -->
+	<wsdl:service name="UserProfileService">
+		<wsdl:port binding="tns:UserProfileBinding" name="UserProfilePort">
+			<soap:address location="http://localhost/services/UserProfileService" />
+		</wsdl:port>
+	</wsdl:service>
+	<!-- ---------------------------------------------------------------------------------------- -->
+	
+	
+	
+	
+</wsdl:definitions>

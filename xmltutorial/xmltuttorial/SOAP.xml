@@ -1,0 +1,27 @@
+<?xml version = "1.0"?>
+<SOAP-ENV:Envelope
+	xmlns:SOAP-ENV=" http://www.w3.org/2001/12/soap-envelope"
+	SOAP-ENV:encodingStyle=" http://www.w3.org/2001/12/soap-encoding">
+
+	<SOAP-ENV:Header>
+		<t:Transaction
+			xmlns:t="http://www.mydomain.com/transaction/"
+			SOAP-ENV:mustUnderstand="true">
+		</t:Transaction>
+	</SOAP-ENV:Header>
+
+	<SOAP-ENV:Body>
+		<m:GetQuotationResponse
+			xmlns:m="http://www.somedomain.com/somepath">
+			<m:Quotation>This is Qutation. Just an example.</m:Quotation>
+		</m:GetQuotationResponse>
+
+		<!-- Optional element -->
+		<SOAP-ENV:Fault>
+
+
+		</SOAP-ENV:Fault>
+
+	</SOAP-ENV:Body>
+
+</SOAP-ENV:Envelope>

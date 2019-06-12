@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	xmlns="http://www.w3.org/2001/XMLSchema"  				define all tags can be used in a xsd
+	targetNamespace="http://www.mydomain.com/Patient" 		xmls than validate by this xsd must have this string
+	xmlns:tns="http://www.mydomain.com/Patient"				define a prefix for our tags
+	elementFormDefault="qualified" 							means all elements must start with prefix. In this example: tns 
+															can be changed to unqualified
+-->
+<schema 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.mydomain.com/Patient"
+	xmlns:tns="http://www.mydomain.com/Patient"
+	elementFormDefault="qualified">
+
+
+	<!-- 
+		Define an element type Patient which cause creating patient object 
+		when we crate a new XML file based on this XSD 
+	-->
+	<element name="patient" type="tns:Patient" />
+
+	<complexType name="Patient">
+		<!-- Element in sequence tag should follow the exact order -->
+		<sequence>
+			<element name="name" type="tns:String15Chars" />
+			<element name="age" type="int" />
+			<element name="dob" type="date" />
+			
+			<!-- maxOccurs="unbounded" any number of appearance is acceptable -->
+			<element name="email" type="string" maxOccurs="unbounded" />
+			
+			<!-- maxOccurs="1 this tag only can appear one time -->
+			<element name="gender" type="tns:Gender" maxOccurs="1"/>
+			
+			<!-- minOccurs="0" make this field optional -->
+			<element name="phone" type="string" minOccurs="0" />
+			<element name="payment" type="tns:PaymentType" />
+		</sequence>
+
+		<attribute name="id" type="tns:Id" use="required" />
+
+	</complexType>
+	
+	
+	<complexType name="PaymentType">
+		<!-- choice means one of the elements can appear -->
+		<choice>
+			<element name="cash" type="int" />
+			<element name="insurance" type="tns:Insurance" />
+		</choice>
+	</complexType>
+
+
+	<complexType name="Insurance">
+		<!-- all means all elements are required -->
+		<all>
+			<element name="provider" type="string" />
+			<element name="limit" type="int" />
+		</all>
+	</complexType>
+
+	<!-- simpleType means does not have nested elements -->
+	<simpleType name="Id">
+		<restriction base="int">
+			<pattern value="[0-9]*"></pattern>
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="String15Chars">
+		<restriction base="string">
+			<maxLength value="15" />
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="Gender">
+		<restriction base="string">
+			<enumeration value="M" />
+			<enumeration value="F" />
+		</restriction>
+	</simpleType>
+
+
+</schema>
+
+<!-- 
+	When we have an other XSD and we want to import it to current XSD
+	<schema 	
+		xmlns:common="http://www.mydomain.com/Common"
+		...
+	/>
+
+	<include schemaLocation="PaymentType.xsd" />
+	<import schemaLocation="Common.xsd" namespace="http://www.mydomain.com/Common" />
+ -->

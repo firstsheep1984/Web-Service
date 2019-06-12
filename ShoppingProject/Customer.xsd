@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/Customer/" targetNamespace="http://www.example.org/Customer/">
+    <element name="customer" type="tns:Customer"></element>
+
+
+    <complexType name="Customer">
+    	<sequence>
+    		<element name="name" type="string"></element>
+    		<element name="family" type="string"></element>
+    		<element name="birthday" type="date"></element>
+    		<element name="email" type="string"></element>
+    		<element name="phone" type="string"></element>
+    		<element name="gender" type="tns:genderType"></element>
+    		<element name="payment" type="tns:paymentType"></element>
+    		<element name="address" type="tns:Address"></element>
+    	</sequence>
+    </complexType>
+
+
+    <simpleType name="genderType">
+    	<restriction base="string">
+    		<enumeration value="M"></enumeration>
+    		<enumeration value="F"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="paymentType">
+    	<sequence>
+    		<element name="TypeOfCard" type="tns:typeOfCardType"></element>
+    		<element name="CardNumber" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="typeOfCardType">
+    	<restriction base="string">
+    		<enumeration value="visa"></enumeration>
+    		<enumeration value="master"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="Address">
+    	<sequence>
+    		<element name="numer" type="int"></element>
+    		<element name="streetAddress" type="string"></element>
+    		<element name="city" type="string"></element>
+    		<element name="state" type="string"></element>
+    		<element name="country" type="string"></element>
+    		<element name="zipcode" type="string"></element>
+    	</sequence>
+    </complexType>
+</schema>

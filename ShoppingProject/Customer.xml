@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:customer xmlns:tns="http://www.example.org/Customer/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Customer/ Customer.xsd ">
+  <name>Lan</name>
+  <family>Lee</family>
+  <birthday>1988-02-05</birthday>
+  <email>lan@gmail.com</email>
+  <phone>5146669999</phone>
+  <gender>M</gender>
+  <payment>
+    <TypeOfCard>visa</TypeOfCard>
+    <CardNumber>6666777788889999</CardNumber>
+  </payment>
+  <address>
+    <numer>11</numer>
+    <streetAddress>ewer</streetAddress>
+    <city>Montreal</city>
+    <state>QC</state>
+    <country>CA</country>
+    <zipcode>H6T3R2</zipcode>
+  </address>
+</tns:customer>

@@ -109,6 +109,8 @@ public class CustomerRestController {
 		}
 
 		return theCustomers.get(index);
+		
+	//	return theCustomers.stream().filter(c -> c.getFamily().toLowerCase().contains(family.toLowerCase())).collect(Collectors.toList());
 	}
 
 	@GetMapping("/customers/sorted/family")
